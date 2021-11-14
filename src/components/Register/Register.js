@@ -20,13 +20,12 @@ const Register = () => {
       userCreate(newUser);
       setNewUser(initialData);
       setCreated(false);
-      setIsdisabled(false);
+      setIsdisabled(true);
     }
   };
 
   const userData = (event) => {
     setNewUser({ ...newUser, [event.target.id]: event.target.value });
-    console.log(newUser);
     setCreated(true);
   };
 

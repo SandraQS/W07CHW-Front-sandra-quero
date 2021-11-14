@@ -1,15 +1,12 @@
 import actionTypes from "../actions/actionTypes";
 
-const userReducer = (stateUser = [], action) => {
+const userReducer = (stateUser = { isAuth: false, user: {} }, action) => {
   let newStateUser;
 
-  switch (actionTypes.type) {
-    case actionTypes.userCreate:
-      newStateUser = [];
-      break;
-
+  switch (action.type) {
     case actionTypes.userLogin:
-      newStateUser = "";
+    case actionTypes.userRegistered:
+      newStateUser = { isAuth: true, user: { ...action.user } };
       break;
 
     default:

@@ -1,6 +1,8 @@
 import { useEffect, useState } from "react";
+import useUser from "../../hooks/useUser";
 
 const Login = () => {
+  const { userLogin } = useUser();
   const initialUser = {
     username: "",
     password: "",
@@ -13,16 +15,15 @@ const Login = () => {
   const clickLogin = (event) => {
     event.preventDefault();
     if (login) {
-      //crear --> accion
+      userLogin(loginData);
       setloginData(initialUser);
       setLogin(false);
-      setIsdisabled(false);
+      setIsdisabled(true);
     }
   };
 
   const userData = (event) => {
     setloginData({ ...loginData, [event.target.id]: event.target.value });
-    console.log(loginData);
     setLogin(true);
   };
 
