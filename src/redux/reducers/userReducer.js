@@ -5,6 +5,7 @@ const userReducer = (stateUser = { isAuth: false, user: {} }, action) => {
 
   switch (action.type) {
     case actionTypes.userLogin:
+    case actionTypes.userRegistered:
       newStateUser = { isAuth: true, user: { ...action.user } };
       break;
 

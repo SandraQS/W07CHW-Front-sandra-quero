@@ -9,3 +9,8 @@ export const userLoginAction = (user) => ({
   type: actionTypes.userLogin,
   user,
 });
+
+export const userRegisteredAction = (user) => ({
+  type: actionTypes.userRegistered,
+  user,
+});
