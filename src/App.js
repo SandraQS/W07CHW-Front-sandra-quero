@@ -1,23 +1,32 @@
-import { useEffect } from "react";
-import "./App.css";
-import Login from "./components/Login/Login";
-import useUser from "./hooks/useUser";
-// import Login from "./components/Login/Login";
-// import Register from "./components/Register/Register";
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import LoginPage from "./pages/LoginPage/LoginPage";
+import NotFoundPage from "./pages/NotFoundPage/NotFoundPage";
+import ProfilePage from "./pages/ProfilePage/ProfilePage";
+import RegisterPage from "./pages/RegisterPage/RegisterPage";
+import paths from "./path/path";
+import PrivateRoute from "./utils/PrivateRoute";
 
 function App() {
-  const { userRegistered, stateUser } = useUser();
-  const isAuth = stateUser.isAuth;
-
-  useEffect(() => {
-    userRegistered();
-    if (isAuth) {
-      //
-    }
-  }, [isAuth, userRegistered]);
   return (
     <>
-      <Login />
+      <Router>
+        <Routes>
+          <Route path="/" element={<LoginPage />} />
+          <Route path={paths.login} element={<LoginPage />} />
+          <Route path={paths.register} element={<RegisterPage />} />
+
+          <Route
+            path={paths.profile}
+            element={
+              <PrivateRoute>
+                <ProfilePage />
+              </PrivateRoute>
+            }
+          />
+
+          <Route path="/*" element={<NotFoundPage />} />
+        </Routes>
+      </Router>
     </>
   );
 }

@@ -1,5 +1,7 @@
 import { useEffect, useState } from "react";
+import { Link } from "react-router-dom";
 import useUser from "../../hooks/useUser";
+import paths from "../../path/path";
 
 const Login = () => {
   const { userLogin } = useUser();
@@ -65,6 +67,12 @@ const Login = () => {
             value={loginData.password}
           />
         </div>
+
+        <Link to={paths.register}>
+          <button type="button" className="btn btn-primary col-7 mt-3">
+            Registrarme
+          </button>
+        </Link>
 
         <button
           type="submit"
