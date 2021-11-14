@@ -1,6 +1,8 @@
 import { useEffect, useState } from "react";
+import useRegister from "../../hooks/useRegister";
 
 const Register = () => {
+  const { userCreate } = useRegister();
   const initialData = {
     name: "",
     username: "",
@@ -15,7 +17,7 @@ const Register = () => {
   const clickRegister = (event) => {
     event.preventDefault();
     if (created) {
-      //crear --> accion
+      userCreate(newUser);
       setNewUser(initialData);
       setCreated(false);
       setIsdisabled(false);
