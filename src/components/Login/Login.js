@@ -1,10 +1,10 @@
 import { useEffect, useState } from "react";
-import { Link } from "react-router-dom";
+import { useNavigate, Link } from "react-router-dom";
 import useUser from "../../hooks/useUser";
 import paths from "../../path/path";
-
 const Login = () => {
   const { userLogin } = useUser();
+  const navigate = useNavigate();
   const initialUser = {
     username: "",
     password: "",
@@ -21,6 +21,7 @@ const Login = () => {
       setloginData(initialUser);
       setLogin(false);
       setIsdisabled(true);
+      navigate(paths.profile);
     }
   };
 
@@ -68,12 +69,6 @@ const Login = () => {
           />
         </div>
 
-        <Link to={paths.register}>
-          <button type="button" className="btn btn-primary col-7 mt-3">
-            Registrarme
-          </button>
-        </Link>
-
         <button
           type="submit"
           className="btn btn-dark col-7 mt-3"
@@ -81,6 +76,12 @@ const Login = () => {
         >
           Login
         </button>
+
+        <Link to={paths.register}>
+          <button type="button" className="btn btn-primary col-7 mt-3">
+            Registrarme
+          </button>
+        </Link>
       </form>
     </>
   );
