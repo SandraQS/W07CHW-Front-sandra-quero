@@ -8,14 +8,10 @@ const ListUsers = () => {
     getUsers();
   }, [getUsers]);
   return (
-    <section className="section-users">
-      <ul className="section-users__users-list">
-        <li key={users.id} className="section-users__user">
-          {users.map((user) => (
-            <CardUser key={user.id} user={user} />
-          ))}
-        </li>
-      </ul>
+    <section className="section-users row justify-content-between">
+      {users.map((user) => (
+        <CardUser key={user.id} user={user} />
+      ))}
     </section>
   );
 };
