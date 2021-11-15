@@ -20,8 +20,8 @@ describe("Given Login component", () => {
       const labelName = await screen.findAllByLabelText("Nombre de usuario:");
       const labelPassword = await screen.findAllByLabelText("Contraseña:");
 
-      expect(labelName).toBeInTheDocument();
-      expect(labelPassword).toBeInTheDocument();
+      expect(labelName[0]).toBeInTheDocument();
+      expect(labelPassword[0]).toBeInTheDocument();
     });
   });
 
