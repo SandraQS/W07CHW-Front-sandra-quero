@@ -17,9 +17,11 @@ describe("Given Login component", () => {
           </Router>
         </Provider>
       );
-      const buttonLogin = await screen.findByRole("label", {
-        name: "Nombre de usuario:",
-      });
+      const labelName = await screen.findAllByLabelText("Nombre de usuario:");
+      const labelPassword = await screen.findAllByLabelText("Contraseña:");
+
+      expect(labelName).toBeInTheDocument();
+      expect(labelPassword).toBeInTheDocument();
     });
   });
 
