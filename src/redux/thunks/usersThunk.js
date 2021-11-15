@@ -12,6 +12,6 @@ export const usersRedurerActionThunk = () => async (dispatch) => {
   });
 
   if (response.status === 200) {
-    dispatch(getUsersAction(response.data));
+    dispatch(getUsersAction(response.data.users));
   }
 };
