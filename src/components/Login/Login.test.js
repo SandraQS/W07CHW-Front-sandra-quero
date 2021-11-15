@@ -1,47 +1,52 @@
 import Login from "./Login";
 import { render, screen } from "@testing-library/react";
+import userEvent from "@testing-library/user-event";
 import configureStore from "../../redux/store";
 import { Provider } from "react-redux";
-import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import { BrowserRouter as Router } from "react-router-dom";
+
+beforeEach(() => {
+  const store = configureStore();
+  render(
+    <Provider store={store}>
+      <Router>
+        <Login />
+      </Router>
+    </Provider>
+  );
+});
 
 describe("Given Login component", () => {
   describe("When it's rendered", () => {
-    test("Then it should render a form to login", async () => {
-      const store = configureStore();
-      render(
-        <Provider store={store}>
-          <Router>
-            <Routes>
-              <Route path="/" element={<Login />} />
-            </Routes>
-          </Router>
-        </Provider>
+    test("Then it should render a button Login and Registrarme", async () => {
+      const buttonLogin = await screen.findByRole("button", { name: "Login" });
+      const usernameForm = await screen.findByPlaceholderText(
+        "Nombre de usuario"
       );
-      const labelName = await screen.findAllByLabelText("Nombre de usuario:");
-      const labelPassword = await screen.findAllByLabelText("Contraseña:");
+      const passwordForm = await screen.findByPlaceholderText("Contraseña");
+      const mock = jest.fn();
+      buttonLogin.addEventListener("click", mock);
 
-      expect(labelName[0]).toBeInTheDocument();
-      expect(labelPassword[0]).toBeInTheDocument();
+      userEvent.type(usernameForm, "sandrita");
+      userEvent.type(passwordForm, "sandrita");
+      userEvent.click(buttonLogin);
+
+      expect(buttonLogin).toBeInTheDocument();
+      expect(mock).toHaveBeenCalled();
     });
   });
 
-  test("Then it should render a button Login and Registrarme", async () => {
-    const store = configureStore();
-    render(
-      <Provider store={store}>
-        <Router>
-          <Routes>
-            <Route path="/" element={<Login />} />
-          </Routes>
-        </Router>
-      </Provider>
-    );
-    const buttonLogin = await screen.findByRole("button", { name: "Login" });
-    const buttonRegister = await screen.findByRole("button", {
-      name: "Registrarme",
-    });
+  describe("When the user clicks the register button", () => {
+    test("Then it should navigate to the render component", async () => {
+      const registerButton = await screen.findByRole("button", {
+        name: "Registrarme",
+      });
+      const mock = jest.fn();
 
-    expect(buttonLogin).toBeInTheDocument();
-    expect(buttonRegister).toBeInTheDocument();
+      registerButton.addEventListener("click", mock);
+      userEvent.click(registerButton);
+
+      expect(mock).toHaveBeenCalled();
+    });
   });
 });
