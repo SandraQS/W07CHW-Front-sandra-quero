@@ -5,7 +5,7 @@ import { userRegisteredAction } from "../redux/actions/actionCreators";
 import { userLoginActionThunk } from "../redux/thunks/userThunk";
 
 const useUser = () => {
-  const { stateUser } = useSelector(({ stateUser }) => ({ stateUser }));
+  const { stateUser } = useSelector((store) => store);
   const dispatch = useDispatch();
 
   const userLogin = (user) => {

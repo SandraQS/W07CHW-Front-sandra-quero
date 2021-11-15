@@ -10,3 +10,15 @@ a:hover {
   color: white;
   text-decoration: none;
 }
+
+.error-user {
+  margin-top: 15px;
+  padding: 3px;
+  background-color: brown;
+  color: white;
+  text-align: center;
+}
+
+.error-user p {
+  margin: 0;
+}
