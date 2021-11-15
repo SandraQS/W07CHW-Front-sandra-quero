@@ -1,7 +1,11 @@
 import { useEffect, useState } from "react";
+import { useNavigate } from "react-router-dom";
+
 import useRegister from "../../hooks/useRegister";
+import paths from "../../paths/paths";
 
 const Register = () => {
+  const navigate = useNavigate();
   const { userCreate } = useRegister();
   const initialData = {
     name: "",
@@ -21,6 +25,7 @@ const Register = () => {
       setNewUser(initialData);
       setCreated(false);
       setIsdisabled(true);
+      navigate(paths.login);
     }
   };
 
