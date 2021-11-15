@@ -14,3 +14,8 @@ export const userRegisteredAction = (user) => ({
   type: actionTypes.userRegistered,
   user,
 });
+
+export const getUsersAction = (users) => ({
+  type: actionTypes.getUsers,
+  users,
+});
