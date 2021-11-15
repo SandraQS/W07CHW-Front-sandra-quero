@@ -11,9 +11,9 @@ const ListUsers = () => {
   return (
     <section>
       <ul>
-        <li>
+        <li key={users.id}>
           {users.map((user) => (
-            <CardUser user={user} />
+            <CardUser key={user.id} user={user} />
           ))}
         </li>
       </ul>
