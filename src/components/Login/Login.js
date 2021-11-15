@@ -1,33 +1,33 @@
 import { useEffect, useState } from "react";
 import { useNavigate, Link } from "react-router-dom";
 import useUser from "../../hooks/useUser";
-import paths from "../../path/path";
+import paths from "../../paths/paths";
 const Login = () => {
-  const { userLogin } = useUser();
+  const { userLogin, stateUser } = useUser();
   const navigate = useNavigate();
   const initialUser = {
     username: "",
     password: "",
   };
-
   const [loginData, setloginData] = useState(initialUser);
-  const [login, setLogin] = useState(false);
   const [isdisabled, setIsdisabled] = useState(true);
 
   const clickLogin = (event) => {
     event.preventDefault();
-    if (login) {
-      userLogin(loginData);
-      setloginData(initialUser);
-      setLogin(false);
-      setIsdisabled(true);
+    userLogin(loginData);
+    setloginData(initialUser);
+    setIsdisabled(true);
+    navigate(paths.profile);
+  };
+
+  useEffect(() => {
+    if (stateUser.isAuth) {
       navigate(paths.profile);
     }
-  };
+  });
 
   const userData = (event) => {
     setloginData({ ...loginData, [event.target.id]: event.target.value });
-    setLogin(true);
   };
 
   useEffect(() => {
@@ -43,7 +43,7 @@ const Login = () => {
         onSubmit={(event) => {
           clickLogin(event);
         }}
-        className="row"
+        className="form-login row"
       >
         <div className="form-group col-8">
           <label htmlFor="username">Nombre de usuario: </label>

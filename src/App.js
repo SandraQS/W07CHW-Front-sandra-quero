@@ -3,7 +3,7 @@ import LoginPage from "./pages/LoginPage/LoginPage";
 import NotFoundPage from "./pages/NotFoundPage/NotFoundPage";
 import ProfilePage from "./pages/ProfilePage/ProfilePage";
 import RegisterPage from "./pages/RegisterPage/RegisterPage";
-import paths from "./path/path";
+import paths from "./paths/paths";
 import PrivateRoute from "./utils/PrivateRoute";
 
 function App() {
