@@ -1,15 +1,14 @@
 const CardUser = ({
-  user,
-  user: { image, name, username, age, friends, enemies, id },
+  user: { image, name, username, age, friends, enemies },
 }) => {
   return (
-    <article>
-      <img src={image} alt={name} />
-      <h2>{name}</h2>
-      <p>{username}</p>
-      <p>{age}</p>
-      <p>Amigos: {friends.length} </p>
-      <p>Enemigos: {enemies.length} </p>
+    <article className="section-user">
+      <img src={image} alt={name} className="section-user__image" />
+      <h2 className="section-user__name">{name}</h2>
+      <p className="section-user__username">{username}</p>
+      <p className="section-user__age">{age}</p>
+      <p className="section-user__friends">Amigos: {friends.length} </p>
+      <p className="section-user__enemies">Enemigos: {enemies.length} </p>
     </article>
   );
 };

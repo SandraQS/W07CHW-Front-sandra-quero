@@ -8,9 +8,9 @@ const ListUsers = () => {
     getUsers();
   }, [getUsers]);
   return (
-    <section>
-      <ul>
-        <li key={users.id}>
+    <section className="section-users">
+      <ul className="section-users__users-list">
+        <li key={users.id} className="section-users__user">
           {users.map((user) => (
             <CardUser key={user.id} user={user} />
           ))}
