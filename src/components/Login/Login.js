@@ -53,6 +53,7 @@ const Login = () => {
             <input
               type="text"
               className="form-control"
+              autoComplete="off"
               id="username"
               placeholder="Nombre de usuario"
               onChange={userData}
@@ -65,6 +66,7 @@ const Login = () => {
             <input
               type="password"
               className="form-control"
+              autoComplete="off"
               id="password"
               placeholder="Contraseña"
               onChange={userData}
