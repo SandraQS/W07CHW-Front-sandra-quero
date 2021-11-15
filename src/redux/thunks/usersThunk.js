@@ -10,7 +10,6 @@ export const usersRedurerActionThunk = () => async (dispatch) => {
       Authorization: "Bearer " + token,
     },
   });
-  console.log(response.data.users);
 
   if (response.status === 200) {
     dispatch(getUsersAction(response.data.users));

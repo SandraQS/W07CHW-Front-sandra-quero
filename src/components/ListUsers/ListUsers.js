@@ -7,7 +7,6 @@ const ListUsers = () => {
   useEffect(() => {
     getUsers();
   }, [getUsers]);
-  console.log(`${users} AQUIIII`);
   return (
     <section>
       <ul>
