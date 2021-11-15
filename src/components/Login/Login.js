@@ -38,7 +38,7 @@ const Login = () => {
 
   return (
     <>
-      <h1>Registro</h1>
+      <h1>Login</h1>
       <form
         onSubmit={(event) => {
           clickLogin(event);
