@@ -4,6 +4,8 @@ import { useNavigate } from "react-router-dom";
 import useRegister from "../../hooks/useRegister";
 import paths from "../../paths/paths";
 
+import "./Register.css";
+
 const Register = () => {
   const navigate = useNavigate();
   const { userCreate } = useRegister();
@@ -47,70 +49,76 @@ const Register = () => {
 
   return (
     <>
-      <h1>Registro</h1>
-      <form
-        onSubmit={(event) => {
-          clickRegister(event);
-        }}
-        className="row"
-      >
-        <div className="form-group col-8">
-          <label htmlFor="name">Nombre: </label>
-          <input
-            type="text"
-            className="form-control"
-            id="name"
-            placeholder="Nombre"
-            onChange={userData}
-            value={newUser.name}
-          />
-        </div>
-
-        <div className="form-group col-8">
-          <label htmlFor="age">Edad: </label>
-          <input
-            type="number"
-            min="0"
-            className="form-control"
-            id="age"
-            placeholder="Edad"
-            onChange={userData}
-            value={newUser.age}
-          />
-        </div>
-
-        <div className="form-group col-8">
-          <label htmlFor="username">Nombre de usuario: </label>
-          <input
-            type="text"
-            className="form-control"
-            id="username"
-            placeholder="Nombre de usuario"
-            onChange={userData}
-            value={newUser.username}
-          />
-        </div>
-
-        <div className="form-group col-8">
-          <label htmlFor="password">Contraseña: </label>
-          <input
-            type="password"
-            className="form-control"
-            id="password"
-            placeholder="Contraseña"
-            onChange={userData}
-            value={newUser.password}
-          />
-        </div>
-
-        <button
-          type="submit"
-          className="btn btn-dark col-7 mt-3"
-          disabled={isdisabled}
+      <section className="section-register row justify-content-center">
+        <form
+          onSubmit={(event) => {
+            clickRegister(event);
+          }}
+          className="section-register__form col-6"
         >
-          Registrarse
-        </button>
-      </form>
+          <h1>Registro</h1>
+          <div className="form-group col-12">
+            <label htmlFor="name">Nombre: </label>
+            <input
+              type="text"
+              className="form-control"
+              id="name"
+              placeholder="Nombre"
+              onChange={userData}
+              autoComplete="off"
+              value={newUser.name}
+            />
+          </div>
+
+          <div className="form-group col-12">
+            <label htmlFor="age">Edad: </label>
+            <input
+              type="number"
+              min="0"
+              className="form-control"
+              id="age"
+              autoComplete="off"
+              placeholder="Edad"
+              onChange={userData}
+              value={newUser.age}
+            />
+          </div>
+
+          <div className="form-group col-12">
+            <label htmlFor="username">Nombre de usuario: </label>
+            <input
+              type="text"
+              className="form-control"
+              id="username"
+              autoComplete="off"
+              placeholder="Nombre de usuario"
+              onChange={userData}
+              value={newUser.username}
+            />
+          </div>
+
+          <div className="form-group col-12">
+            <label htmlFor="password">Contraseña: </label>
+            <input
+              type="password"
+              autoComplete="off"
+              className="form-control"
+              id="password"
+              placeholder="Contraseña"
+              onChange={userData}
+              value={newUser.password}
+            />
+          </div>
+
+          <button
+            type="submit"
+            className="btn btn-outline-light col-12 mt-3"
+            disabled={isdisabled}
+          >
+            Registrarse
+          </button>
+        </form>
+      </section>
     </>
   );
 };

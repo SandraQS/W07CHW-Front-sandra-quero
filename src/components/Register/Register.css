@@ -1,0 +1,10 @@
+.section-register {
+  color: white;
+  margin-top: 150px;
+}
+
+.section-register__form {
+  background-color: black;
+  border-radius: 10px;
+  padding: 30px;
+}
