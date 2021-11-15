@@ -48,31 +48,4 @@ describe("Given the App component", () => {
       expect(homePageTitle).toBeInTheDocument();
     });
   });
-
-  describe("When the user fill the fields register form and click the button", () => {
-    test("Then it should go to LoginPage", async () => {
-      const registerButton = await screen.findByRole("button", {
-        name: "Registrarse",
-      });
-      const nameForm = await screen.findByPlaceholderText("Nombre");
-      const usernameForm = await screen.findByPlaceholderText(
-        "Nombre de usuario"
-      );
-      const ageForm = await screen.findByPlaceholderText("Edad");
-      const passwordForm = await screen.findByPlaceholderText("Contraseña");
-
-      userEvent.type(nameForm, "Dante");
-      userEvent.type(usernameForm, "Dante");
-      userEvent.type(ageForm, "25");
-      userEvent.type(passwordForm, "Dante");
-      userEvent.click(registerButton);
-      screen.debug();
-
-      const loginTitle = await screen.findByRole("heading", {
-        name: /login/i,
-      });
-
-      expect(loginTitle).toBeInTheDocument();
-    });
-  });
 });
