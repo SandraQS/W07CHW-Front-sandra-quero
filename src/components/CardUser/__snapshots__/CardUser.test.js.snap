@@ -1,0 +1,61 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Given WHen Then it should 1`] = `
+<article
+  className="section-user  col-md-6 col-lg-3 col-12 row justify-content-center"
+>
+  <div
+    className="section-user__container-image"
+  >
+    <img
+      alt="Carl"
+      className="section-user__image"
+      src="https://cdns.iconmonstr.com/wp-content/assets/preview/2012/240/iconmonstr-user-14.png"
+    />
+  </div>
+  <div
+    className="section-user__container-info row justify-content-between"
+  >
+    <h2
+      className="section-user__name col-12"
+    >
+      Carl
+    </h2>
+    <p
+      className="section-user__username  col-md-6 col-12"
+    >
+      Carlitus
+    </p>
+    <p
+      className="section-user__age col-md-6 col-1"
+    >
+      Edad: 
+      33
+    </p>
+    <p
+      className="section-user__friends col-md-6 col-1"
+    >
+      Amigos: 
+      2
+    </p>
+    <p
+      className="section-user__enemies col-md-6 col-1"
+    >
+      Enemigos: 
+      0
+    </p>
+    <button
+      className="section-user__button-friends btn btn-outline-light"
+      type="button"
+    >
+      Añadir como amigo
+    </button>
+    <button
+      className="section-user__button-enemies btn btn-outline-light"
+      type="button"
+    >
+      Añadir como enemigo
+    </button>
+  </div>
+</article>
+`;
