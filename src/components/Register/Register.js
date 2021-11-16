@@ -54,7 +54,7 @@ const Register = () => {
           onSubmit={(event) => {
             clickRegister(event);
           }}
-          className="section-register__form col-6"
+          className="section-register__form col-md-6 col-10"
         >
           <h1>Registro</h1>
           <div className="form-group col-12">

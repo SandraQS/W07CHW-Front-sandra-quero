@@ -45,7 +45,7 @@ const Login = () => {
           onSubmit={(event) => {
             clickLogin(event);
           }}
-          className="section-login__form col-6"
+          className="section-login__form col-md-6 col-10"
         >
           <h1>Login</h1>
           <div className="form-group col-12">
@@ -76,7 +76,7 @@ const Login = () => {
 
           <button
             type="submit"
-            className="btn btn-outline-light col-6 mb-3 mt-3"
+            className="btn btn-outline-light col-md-6 col-12 mb-3 mt-3"
             disabled={isdisabled}
           >
             Login
@@ -85,7 +85,7 @@ const Login = () => {
           <Link to={paths.register}>
             <button
               type="button"
-              className="btn btn-outline-info col-6 mb-3 mt-3"
+              className="btn btn-outline-info col-md-6 col-12 mb-3 mt-3"
             >
               Registrarme
             </button>
